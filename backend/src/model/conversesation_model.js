@@ -1,17 +1,21 @@
 import mongoose from "mongoose";
 
 const connversationSchema=new mongoose.Schema({
-    memebers:{
+    members:[
+        {
         type:mongoose.Schema.Types.ObjectId,
         ref:"User"
-    },
-    messages:{
+        }
+    ],
+    message:[
+        {
         type:mongoose.Schema.Types.ObjectId,
         ref:"Mess",
         default:[]
-    }
+        }
+    ]   
 },{timestamps:true})
 
 
 
-export const Conv= connversationSchema.model("Conv",connversationSchema)
+export const Conv= mongoose.model("Conv",connversationSchema)
